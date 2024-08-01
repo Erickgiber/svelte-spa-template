@@ -1,8 +1,8 @@
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import adapter from '@sveltejs/adapter-static';
-import dotenv from 'dotenv';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+import adapter from '@sveltejs/adapter-static'
+import dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config()
 
 export default {
   // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
@@ -14,4 +14,4 @@ export default {
       base: process.env.GH_PAGES_BUILD ? '/svelte-spa-template' : ''
     }
   }
-};
+}
