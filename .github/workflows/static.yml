@@ -42,7 +42,7 @@ jobs:
         run: npm run build
 
       - name: Add .nojekyll file
-        run: echo > build/.nojekyll
+        run: echo > dist/.nojekyll
 
       - name: List build directory
         run: ls -R build
