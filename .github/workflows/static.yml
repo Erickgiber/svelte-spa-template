@@ -45,7 +45,7 @@ jobs:
         run: echo > dist/.nojekyll
 
       - name: List build directory
-        run: ls -R build
+        run: ls -R dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
