@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cpx .htaccess build && cpx .nojekyll build",
+    "build": "vite build && cpx .htaccess dist && cpx .nojekyll dist",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json",
     "format": "prettier --write --plugin prettier-plugin-svelte ."
