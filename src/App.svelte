@@ -6,9 +6,10 @@
   import { Router, Route } from 'svelte-routing'
 
   const url = import.meta.env.MODE === 'development' ? '' : import.meta.env.BASE_PATH
+  console.log(url)
 </script>
 
-<Router {url}>
+<Router basepath={url}>
   <Anchor to="/login">Login</Anchor>
   <Anchor to="/">Dashboard</Anchor>
 
