@@ -7,11 +7,11 @@
 
   function handleSubmit(e: Event) {
     user.set({
-      name: 'Erick Giber',
-      lastname: 'Giber',
-      email: 'erick.giber@gmail.com',
+      name: 'testing',
+      lastname: 'Test',
+      email: 'test.giber@gmail.com',
       photo: 'https://avatars.githubusercontent.com/u/10127379?v=4',
-      username: 'erickgiber'
+      username: 'test'
     })
     navigate('/', { replace: true })
   }
