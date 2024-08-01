@@ -5,8 +5,7 @@
   import RouterProvider from '$lib/components/RouterProvider.svelte'
   import { Router, Route } from 'svelte-routing'
 
-  const url = import.meta.env.MODE === 'development' ? '' : import.meta.env.BASE_PATH
-  console.log(url)
+  const url = import.meta.env.MODE === 'development' ? '' : (import.meta.env.BASE_PATH || '/svelte-spa-template')
 </script>
 
 <Router basepath={url}>
