@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@sveltejs/kit": "^2.5.19",
+    "dotenv": "^16.4.5",
     "svelte-routing": "^2.13.0",
     "svelte-transition": "^0.0.17"
   }
