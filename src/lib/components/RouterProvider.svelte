@@ -3,7 +3,7 @@
   import { user } from '$lib/store/user.store'
   import { onMount, onDestroy } from 'svelte'
   import { navigate, useLocation } from 'svelte-routing'
-  import type { User } from 'types/user.types'
+  import type { User } from '$types/user.types'
 
   const location = useLocation()
   let isLoaded = false

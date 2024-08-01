@@ -10,7 +10,8 @@
       "$lib/*": ["lib/*"],
       "$assets/*": ["assets/*"],
       "$pages/*": ["pages/*"],
-      "$config/*": ["config/*"]
+      "$config/*": ["config/*"],
+      "$types/*": ["types/*"]
     },
     "allowJs": true,
     "checkJs": true,
