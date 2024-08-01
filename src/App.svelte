@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { appRoutes } from '$config/app.routes';
+  import { app } from '$config/app.config';
   import Anchor from '$lib/components/Anchor.svelte';
   import HandleRoute from '$lib/components/HandleRoute.svelte';
   import { Router, Link, Route, useLocation, links } from 'svelte-routing';
@@ -10,7 +10,7 @@
   <Anchor to="/">Dashboard</Anchor>
 
   <HandleRoute>
-    {#each appRoutes as route}
+    {#each app.routes as route}
       <Route path={route.path} component={route.component} />
     {/each}
   </HandleRoute>
