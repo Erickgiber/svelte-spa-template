@@ -41,6 +41,12 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Add .nojekyll file
+        run: echo > build/.nojekyll
+
+      - name: List build directory
+        run: ls -R build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -49,6 +55,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: List build directory
-        run: ls -R build
