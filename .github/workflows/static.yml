@@ -33,12 +33,12 @@ jobs:
         run: npm run build
 
       - name: Add .nojekyll file
-        run: echo > dist/.nojekyll
+        run: echo > build/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: 'build'
 
       - name: Deploy to GitHub Pages
         id: deployment

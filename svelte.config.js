@@ -6,9 +6,18 @@ export default {
   // for more information about preprocessors
   preprocess: vitePreprocess(),
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      pages: 'build',
+      assets: 'build',
+      fallback: null,
+      precompress: false
+    }),
+    prerender: {
+      default: true
+    },
+    trailingSlash: 'always',
     paths: {
-      base: process.env.NODE_ENV == 'production' ? '/svelte-spa-template' : ''
+      base: '/svelte-spa-template'
     }
   }
 }

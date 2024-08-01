@@ -1,6 +1,6 @@
 <script lang="ts">
   import { app } from '$config/app.config'
-  import RouteAuthGuard from '$lib/components/RouteAuthGuard.svelte'
+  import { useLocation } from 'svelte-routing'
   export let title: string
 </script>
 
