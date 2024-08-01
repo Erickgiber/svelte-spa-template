@@ -1,45 +1,49 @@
-name: Deploy Svelte project to Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+    branches: 'main'
 
 jobs:
-  deploy:
+  build_site:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
-
-      - name: remove node_modules and package-lock.json
-        run: rm -rf node_modules package-lock.json
+          node-version: 20
+          cache: npm
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
-        run: npm run build
+      - name: build
+        env:
+          BASE_PATH: '/${{ github.event.repository.name }}'
+        run: |
+          npm run build
 
-      - name: Add .nojekyll file
-        run: echo > build/.nojekyll
-
-      - name: Upload artifact
+      - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'build'
+          path: 'build/'
 
-      - name: Deploy to GitHub Pages
+  deploy:
+    needs: build_site
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
