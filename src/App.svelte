@@ -3,7 +3,12 @@
   import Anchor from '$lib/components/Anchor.svelte'
   import RouteAuthGuard from '$lib/components/RouteAuthGuard.svelte'
   import RouterProvider from '$lib/components/RouterProvider.svelte'
-  import { Router, Route } from 'svelte-routing'
+  import { onMount } from 'svelte'
+  import { Router, Route, navigate } from 'svelte-routing'
+
+  onMount(() => {
+    navigate('/', { replace: true })
+  })
 </script>
 
 <Router>
