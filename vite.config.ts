@@ -5,9 +5,9 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svelte()],
-  base: process.env.NODE_ENV === 'production' ? '/svelte-app-template/' : '/',
+  base: process.argv.includes('dev') ? '' : '/svelte-spa-template',
   build: {
-    outDir: 'build',
+    outDir: 'build'
   },
   resolve: {
     alias: {

@@ -9,15 +9,12 @@ export default {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: null,
-      precompress: false
+      fallback: undefined,
+      precompress: false,
+      strict: true
     }),
-    prerender: {
-      default: true
-    },
-    trailingSlash: 'always',
     paths: {
-      base: '/svelte-spa-template'
+      base: process.argv.includes('dev') ? '' : '/svelte-spa-template'
     }
   }
 }
