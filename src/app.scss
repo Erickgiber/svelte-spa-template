@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
+
+:where(*, *::after, *::before) {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  font-family: "Red Hat Display", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
