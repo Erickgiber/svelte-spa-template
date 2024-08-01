@@ -3,15 +3,12 @@
   import Anchor from '$lib/components/Anchor.svelte'
   import RouteAuthGuard from '$lib/components/RouteAuthGuard.svelte'
   import RouterProvider from '$lib/components/RouterProvider.svelte'
-  import { onMount } from 'svelte'
-  import { Router, Route, navigate } from 'svelte-routing'
+  import { Router, Route } from 'svelte-routing'
 
-  onMount(() => {
-    navigate('/', { replace: true })
-  })
+  const url = import.meta.env.MODE === 'development' ? '' : import.meta.env.BASE_PATH
 </script>
 
-<Router>
+<Router {url}>
   <Anchor to="/login">Login</Anchor>
   <Anchor to="/">Dashboard</Anchor>
 
