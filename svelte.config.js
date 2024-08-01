@@ -11,7 +11,7 @@ export default {
   kit: {
     adapter: adapter(),
     paths: {
-      base: process.env.GH_PAGES_BUILD == "true" ? '/svelte-spa-template' : ''
+      base: process.env.GH_PAGES_BUILD == 'true' ? '/svelte-spa-template' : ''
     }
   }
 }
