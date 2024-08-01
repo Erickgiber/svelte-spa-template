@@ -5,16 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cpx .htaccess dist",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json",
     "format": "prettier --write --plugin prettier-plugin-svelte ."
   },
   "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.2",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "@tsconfig/svelte": "^5.0.4",
     "@types/node": "^22.0.0",
     "add": "^2.0.6",
+    "cpx": "^1.5.0",
     "prettier": "^3.3.3",
     "prettier-plugin-svelte": "^3.2.6",
     "sass": "^1.77.8",
@@ -25,7 +27,7 @@
     "vite": "^5.3.4"
   },
   "dependencies": {
-    "path-browserify": "^1.0.1",
+    "@sveltejs/kit": "^2.5.19",
     "svelte-routing": "^2.13.0",
     "svelte-transition": "^0.0.17"
   }
