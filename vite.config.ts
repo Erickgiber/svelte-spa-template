@@ -5,6 +5,11 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svelte()],
+  base: '/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets'
+  },
   resolve: {
     alias: {
       $lib: path.resolve(__dirname, 'src/lib'),
