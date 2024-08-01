@@ -14,7 +14,7 @@ export default {
       strict: true
     }),
     paths: {
-      base: process.argv.includes('dev') ? '' : '/svelte-spa-template'
+      base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
     }
   }
 }
