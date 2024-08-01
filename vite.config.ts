@@ -6,6 +6,9 @@ import path from 'path'
 export default defineConfig({
   plugins: [svelte()],
   base: process.env.NODE_ENV === 'production' ? '/svelte-app-template/' : '/',
+  build: {
+    outDir: 'build',
+  },
   resolve: {
     alias: {
       $lib: path.resolve(__dirname, 'src/lib'),
