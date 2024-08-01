@@ -1,14 +1,21 @@
+import Login from '$pages/public/Login.svelte'
+import Dashboard from '$pages/private/Dashboard.svelte'
+
 export const appRoutes = [
   {
     path: '/login',
-    component: () => import('$pages/public/Login.svelte'),
+    component: Login,
     private: false,
-    title: 'Login'
+    props: {
+      title: 'Login'
+    }
   },
   {
     path: '/',
-    component: () => import('$pages/private/Dashboard.svelte'),
+    component: Dashboard,
     private: true,
-    title: 'Dashboard'
+    props: {
+      title: 'Dashboard'
+    }
   }
 ]

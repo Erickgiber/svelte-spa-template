@@ -1,6 +1,9 @@
 <script lang="ts">
+  import { app } from '$config/app.config'
   import { user } from '$lib/store/user.store'
   import { navigate } from 'svelte-routing'
+
+  export let title: string
 
   function handleSubmit(e: Event) {
     user.set({
@@ -13,6 +16,10 @@
     navigate('/', { replace: true })
   }
 </script>
+
+<svelte:head>
+  <title>{title} | {app.name}</title>
+</svelte:head>
 
 <form on:submit|preventDefault={handleSubmit}>
   <label for="email">Email</label>
