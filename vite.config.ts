@@ -5,10 +5,6 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svelte()],
-  base: process.argv.includes('dev') ? '' : process.env.BASE_PATH,
-  build: {
-    outDir: 'build'
-  },
   resolve: {
     alias: {
       $lib: path.resolve(__dirname, 'src/lib'),

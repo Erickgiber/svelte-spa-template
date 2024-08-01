@@ -4,11 +4,9 @@
   import RouteAuthGuard from '$lib/components/RouteAuthGuard.svelte'
   import RouterProvider from '$lib/components/RouterProvider.svelte'
   import { Router, Route } from 'svelte-routing'
-
-  const url = import.meta.env.MODE === 'development' ? '' : (import.meta.env.BASE_PATH || '/svelte-spa-template')
 </script>
 
-<Router basepath={url}>
+<Router>
   <Anchor to="/login">Login</Anchor>
   <Anchor to="/">Dashboard</Anchor>
 
