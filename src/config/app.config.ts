@@ -1,4 +1,4 @@
-import { appRoutes } from './app.routes';
+import { appRoutes } from './app.routes'
 
 export const app = {
   name: 'Template Svelte SPA',
@@ -12,4 +12,4 @@ export const app = {
     quaternary: '#41D1FF',
     quinary: '#BD34FE'
   }
-};
+}

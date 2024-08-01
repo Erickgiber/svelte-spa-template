@@ -11,4 +11,4 @@ export const appRoutes = [
     private: true,
     title: 'Dashboard'
   }
-];
+]

@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { user } from '$lib/store/user.store';
-  import { navigate } from 'svelte-routing';
-
+  import { user } from '$lib/store/user.store'
+  import { navigate } from 'svelte-routing'
 
   function handleSubmit(e: Event) {
     user.set({
@@ -9,13 +8,11 @@
       lastname: 'Giber',
       email: 'erick.giber@gmail.com',
       photo: 'https://avatars.githubusercontent.com/u/10127379?v=4',
-      username: 'erickgiber',
-    });
-    navigate('/', { replace: true });
+      username: 'erickgiber'
+    })
+    navigate('/', { replace: true })
   }
- 
 </script>
-
 
 <form on:submit|preventDefault={handleSubmit}>
   <label for="email">Email</label>

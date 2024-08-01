@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { app } from '$config/app.config';
-  import Anchor from '$lib/components/Anchor.svelte';
-  import HandleRoute from '$lib/components/HandleRoute.svelte';
-  import { Router, Link, Route, useLocation, links } from 'svelte-routing';
+  import { app } from '$config/app.config'
+  import Anchor from '$lib/components/Anchor.svelte'
+  import HandleRoute from '$lib/components/HandleRoute.svelte'
+  import { Router, Link, Route, useLocation, links } from 'svelte-routing'
 </script>
 
 <Router>

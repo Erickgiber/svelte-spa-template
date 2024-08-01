@@ -1,15 +1,15 @@
 export type RouteLocation = {
-  pathname: string;
-  search: string;
-  hash?: string;
+  pathname: string
+  search: string
+  hash?: string
   state: {
-    [k in string | number]: unknown;
-  };
-};
+    [k in string | number]: unknown
+  }
+}
 
 export type GetPropsParams = {
-  location: RouteLocation;
-  href: string;
-  isPartiallyCurrent: boolean;
-  isCurrent: boolean;
-};
+  location: RouteLocation
+  href: string
+  isPartiallyCurrent: boolean
+  isCurrent: boolean
+}

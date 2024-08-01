@@ -10,10 +10,10 @@ This template should help get you started developing with Svelte and TypeScript 
 - SCSS
 - Svelte-routing
 - Svelte-transition
-- $lib folder
-- $assets folder
-- $pages folder
-- $config folder
+- $lib shortcut
+- $assets shortcut
+- $pages shortcut
+- $config shortcut
 - Prettier
 - Static files
 - .htaccess

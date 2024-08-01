@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SecureRoute from '$lib/components/SecureRoute.svelte';
+  import SecureRoute from '$lib/components/SecureRoute.svelte'
 </script>
 
 <SecureRoute>
