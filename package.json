@@ -8,7 +8,8 @@
     "build": "vite build && cpx .htaccess dist && cpx .nojekyll dist",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json",
-    "format": "prettier --write --plugin prettier-plugin-svelte ."
+    "format": "prettier --write --plugin prettier-plugin-svelte .",
+    "deploy": "gh-pages -d build -t true"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.2",
@@ -17,6 +18,7 @@
     "@types/node": "^22.0.0",
     "add": "^2.0.6",
     "cpx": "^1.5.0",
+    "gh-pages": "^6.1.1",
     "prettier": "^3.3.3",
     "prettier-plugin-svelte": "^3.2.6",
     "sass": "^1.77.8",
@@ -28,7 +30,6 @@
   },
   "dependencies": {
     "@sveltejs/kit": "^2.5.19",
-    "dotenv": "^16.4.5",
     "svelte-routing": "^2.13.0",
     "svelte-transition": "^0.0.17"
   }

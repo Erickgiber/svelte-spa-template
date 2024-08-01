@@ -1,9 +1,6 @@
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import adapter from '@sveltejs/adapter-static'
-import dotenv from 'dotenv'
 
-dotenv.config()
-const dev = process.env.NODE_ENV === 'development'
 
 export default {
   // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
@@ -12,7 +9,7 @@ export default {
   kit: {
     adapter: adapter(),
     paths: {
-      base: dev ? '' : '/svelte-spa-template'
+      base: process.env.NODE_ENV == 'production' ? '/svelte-spa-template' : ''
     }
   }
 }
