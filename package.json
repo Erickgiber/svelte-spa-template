@@ -28,6 +28,7 @@
     "vite": "^5.3.4"
   },
   "dependencies": {
+    "@sveltejs/adapter-auto": "^3.2.2",
     "@sveltejs/kit": "^2.5.19",
     "svelte-routing": "^2.13.0",
     "svelte-transition": "^0.0.17"
