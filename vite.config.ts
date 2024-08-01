@@ -6,7 +6,8 @@ import path from 'path'
 export default defineConfig({
   plugins: [svelte()],
   build: {
-    outDir: 'build'
+    outDir: 'build',
+    assetsDir: '',
   },
   resolve: {
     alias: {
