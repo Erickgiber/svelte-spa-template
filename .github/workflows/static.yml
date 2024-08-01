@@ -28,7 +28,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Usa la versión de Node.js que necesites
+          node-version: '20'
 
       - name: Remove node_modules and package-lock.json
         run: |
