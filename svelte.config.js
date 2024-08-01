@@ -3,6 +3,7 @@ import adapter from '@sveltejs/adapter-static'
 import dotenv from 'dotenv'
 
 dotenv.config()
+const dev = process.env.NODE_ENV === 'development';
 
 export default {
   // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
@@ -11,7 +12,7 @@ export default {
   kit: {
     adapter: adapter(),
     paths: {
-      base: process.env.GH_PAGES_BUILD == 'true' ? '/svelte-spa-template' : ''
+      base: dev ? '' : '/svelte-spa-template'
     }
   }
 }
