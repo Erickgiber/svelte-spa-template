@@ -7,9 +7,9 @@ export const checkRouteAccess = (user: User, currentRoute: string) => {
 
   if (route) {
     if (!user && route.private && route.path !== '/login') {
-      navigate('/login')
+      navigate('/login', { replace: true })
     } else if (user && !route.private) {
-      navigate('/')
+      navigate('/', { replace: true })
     }
   }
 }

@@ -2,15 +2,17 @@
   import { app } from '$config/app.config'
   import NavLink from '$lib/components/NavLink.svelte'
   import { user } from '$lib/store/user.store'
-  import { onMount } from 'svelte'
+  import { onDestroy, onMount } from 'svelte'
   import { quintOut } from 'svelte/easing'
-  import { fade, scale } from 'svelte/transition'
-  export let title: string
+  import { scale } from 'svelte/transition'
 
+  export let title: string
+  const isLoadedSession = sessionStorage.getItem('loaded')
   let isLoaded = false
 
   onMount(() => {
     isLoaded = true
+    sessionStorage.setItem('loaded', 'true')
   })
 </script>
 
@@ -21,23 +23,54 @@
 {#if isLoaded}
   <section id="dashboard">
     <h1
-      transition:scale={{ duration: 1600, easing: quintOut, start: 0.95, opacity: 0 }}
+      transition:scale={{
+        duration: isLoadedSession ? 0 : 1600,
+        easing: quintOut,
+        start: 0.95,
+        opacity: 0
+      }}
       class="title"
     >
       {$user?.name}
     </h1>
     <h2
-      transition:scale={{ delay: 50, duration: 1600, easing: quintOut, start: 0.95, opacity: 0 }}
+      transition:scale={{
+        delay: isLoadedSession ? 0 : 50,
+        duration: isLoadedSession ? 0 : 1600,
+        easing: quintOut,
+        start: 0.95,
+        opacity: 0
+      }}
       class="subtitle"
     >
       Welcome to the dashboard!
     </h2>
 
-    <span class="try" transition:fade={{ delay: 600, duration: 1600, easing: quintOut }}>
+    <span
+      class="try"
+      transition:scale={{
+        delay: isLoadedSession ? 0 : 200,
+        duration: isLoadedSession ? 0 : 1600,
+        easing: quintOut,
+        start: 0.95,
+        opacity: 0
+      }}
+    >
       Try go to auth route and see the protected route
     </span>
 
-    <NavLink to="/login" class="link-login">Login</NavLink>
+    <div
+      class="buttons"
+      transition:scale={{
+        delay: isLoadedSession ? 0 : 400,
+        duration: isLoadedSession ? 0 : 1600,
+        easing: quintOut,
+        start: 0.95,
+        opacity: 0
+      }}
+    >
+      <NavLink to="/login" class="link-login">Login</NavLink>
+    </div>
   </section>
 {/if}
 
@@ -88,6 +121,14 @@
       border-radius: 5px;
       color: #202020;
       gap: 5px;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+      font-size: 20px;
     }
   }
 </style>

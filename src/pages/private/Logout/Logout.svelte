@@ -12,6 +12,8 @@
 
   onMount(() => {
     isLoaded = true
+    sessionStorage.removeItem('loaded')
+
     setTimeout(() => {
       localStorage.removeItem('name')
       user.set(null)
