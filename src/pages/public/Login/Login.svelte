@@ -12,6 +12,7 @@
   let name: string = ''
 
   function handleSubmit(e: Event) {
+    if (!name) return
     user.set({ name })
     navigate('/', { replace: true })
     localStorage.setItem('name', name)
@@ -26,8 +27,8 @@
   <title>{title} | {app.name}</title>
 </svelte:head>
 
-<section id="login">
-  {#if isLoaded}
+{#if isLoaded}
+  <section id="login">
     <h1
       transition:scale={{ duration: 1600, easing: quintOut, start: 0.95, opacity: 0 }}
       class="title"
@@ -40,9 +41,7 @@
     >
       Type your name for login
     </h2>
-  {/if}
 
-  {#if isLoaded}
     <form
       id="form"
       autocomplete="off"
@@ -59,6 +58,7 @@
           name="name"
           id="name"
           maxlength="20"
+          required
         />
       </div>
       <div class="buttons">
@@ -66,5 +66,5 @@
         <button class="btn-clear" type="reset" on:click={() => (name = '')}>Clear</button>
       </div>
     </form>
-  {/if}
-</section>
+  </section>
+{/if}
