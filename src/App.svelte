@@ -1,14 +1,14 @@
 <script lang="ts">
   import { app } from '$config/app.config'
-  import Anchor from '$lib/components/Anchor.svelte'
+  import Footer from '$lib/components/Footer.svelte'
+  import Header from '$lib/components/Header.svelte'
   import RouteAuthGuard from '$lib/components/RouteAuthGuard.svelte'
   import RouterProvider from '$lib/components/RouterProvider.svelte'
   import { Router, Route } from 'svelte-routing'
 </script>
 
 <Router>
-  <Anchor to="/login">Login</Anchor>
-  <Anchor to="/">Dashboard</Anchor>
+  <Header />
 
   <!-- If not need to use the router protector, you can remove RouterProvider and use <Route> component normally -->
   <RouterProvider>
@@ -24,4 +24,6 @@
       </Route>
     {/each}
   </RouterProvider>
+
+  <Footer />
 </Router>

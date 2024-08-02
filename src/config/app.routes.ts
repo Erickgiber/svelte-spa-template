@@ -1,5 +1,6 @@
-import Login from '$pages/public/Login.svelte'
-import Dashboard from '$pages/private/Dashboard.svelte'
+import Login from '$pages/public/Login/Login.svelte'
+import Dashboard from '$pages/private/Dashboard/Dashboard.svelte'
+import Logout from '$pages/private/Logout/Logout.svelte'
 
 export const appRoutes = [
   {
@@ -16,6 +17,14 @@ export const appRoutes = [
     private: true,
     props: {
       title: 'Dashboard'
+    }
+  },
+  {
+    path: '/logout',
+    component: Logout,
+    private: true,
+    props: {
+      title: 'Logging out...'
     }
   }
 ]
