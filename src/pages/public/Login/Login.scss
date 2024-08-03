@@ -115,6 +115,10 @@
 
       label {
         @extend .input-label;
+
+        &.label-animation {
+          @include label-animation;
+        }
       }
 
       .input {
