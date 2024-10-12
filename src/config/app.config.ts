@@ -11,5 +11,5 @@ export const app = {
     tertiary: '#FFA800',
     quaternary: '#41D1FF',
     quinary: '#BD34FE'
-  }
+  },
 }
