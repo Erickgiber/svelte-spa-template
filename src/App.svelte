@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { app } from '$config/app.config'
   import Footer from '$lib/components/Footer.svelte'
   import Header from '$lib/components/Header.svelte'
   import RouteAuthGuard from '$lib/components/RouteAuthGuard.svelte'
   import RouterProvider from '$lib/components/RouterProvider.svelte'
   import { isArrayEmpty } from '$lib/utils/isArrayEmpty'
   import { Router, Route } from 'svelte-routing'
+  import { app } from '$config/app.config'
+  import './app.scss'
 </script>
 
 <Router>

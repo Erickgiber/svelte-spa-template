@@ -12,4 +12,5 @@ export const app = {
     quaternary: '#41D1FF',
     quinary: '#BD34FE'
   },
+  useAuthSecurity: false,
 }

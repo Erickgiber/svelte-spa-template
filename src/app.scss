@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :where(*, *::after, *::before) {
   box-sizing: border-box;
@@ -12,11 +15,9 @@
   font-family: 'Red Hat Display', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  background: linear-gradient(to right top, #300537, #6b0546, #a31a45, #d04436, #eb7912);
+  @apply bg-gradient-to-tr from-[#e69ef1] via-[#a71ab4] to-[#4419df];
 }
 
 body {
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
+  @apply w-full min-h-screen overflow-hidden;
 }
