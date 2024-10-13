@@ -9,5 +9,5 @@ export const appRoutes: TypeRoute[] = [
     props: {
       title: 'Home'
     }
-  },
+  }
 ]
