@@ -7,8 +7,8 @@
   import { user } from '$lib/store/user.store'
   import './Logout.scss'
 
-  export let title: string
-  let isLoaded = false
+  let { title } = $props<{ title: string }>()
+  let isLoaded = $state(false)
 
   onMount(() => {
     isLoaded = true

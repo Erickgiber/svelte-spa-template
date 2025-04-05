@@ -7,11 +7,12 @@
   import { scale } from 'svelte/transition'
   import './Login.scss'
 
-  export let title: string
-  let isLoaded = false
-  let name: string = ''
+  let { title } = $props<{ title: string }>()
+  let isLoaded = $state(false)
+  let name: string = $state('')
 
   function handleSubmit(e: Event) {
+    e.preventDefault()
     if (!name) return
     user.set({ name })
     navigate('/', { replace: true })
@@ -45,7 +46,7 @@
     <form
       id="form"
       autocomplete="off"
-      on:submit|preventDefault={handleSubmit}
+      onsubmit={handleSubmit}
       transition:scale={{ duration: 1600, easing: quintOut, start: 0.95, opacity: 0, delay: 200 }}
     >
       <div class="input-container">
@@ -63,7 +64,7 @@
       </div>
       <div class="buttons">
         <button class="btn-submit" type="submit">Login</button>
-        <button class="btn-clear" type="reset" on:click={() => (name = '')}>Clear</button>
+        <button class="btn-clear" type="reset" onclick={() => (name = '')}>Clear</button>
       </div>
     </form>
   </section>

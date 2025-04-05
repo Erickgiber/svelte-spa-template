@@ -3,16 +3,20 @@
   import { useLocation } from 'svelte-routing'
   import { authSubscription } from '$lib/auth/auth.subscription'
 
-  const location = useLocation()
-  let isLoaded = false
+  let { children } = $props()
 
-  $: if (isLoaded) {
-    authSubscription($location)
-  }
+  const location = useLocation()
+  let isLoaded = $state(false)
+
+  $effect(() => {
+    if (isLoaded) {
+      authSubscription($location)
+    }
+  })
 
   onMount(() => {
     isLoaded = true
   })
 </script>
 
-<slot />
+{@render children()}
