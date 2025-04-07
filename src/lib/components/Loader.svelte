@@ -3,8 +3,8 @@
   import { quintOut } from 'svelte/easing'
   import { scale } from 'svelte/transition'
 
-  let isLoaded = false
-  let translade = false
+  let isLoaded = $state(false)
+  let translade = $state(false)
 
   onMount(() => {
     isLoaded = true

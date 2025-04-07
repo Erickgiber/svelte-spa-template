@@ -6,9 +6,9 @@
   import { quintOut } from 'svelte/easing'
   import { scale } from 'svelte/transition'
 
-  export let title: string
+  let { title } = $props<{ title: string }>()
   const isLoadedSession = sessionStorage.getItem('loaded')
-  let isLoaded = false
+  let isLoaded = $state(false)
 
   onMount(() => {
     isLoaded = true

@@ -2,12 +2,15 @@
   import { Link } from 'svelte-routing'
   import type { GetPropsParams } from 'types/props-anchor.types'
 
-  export let to: string
-  export let replace: boolean = false
-  export let className: string = ''
-  let active: boolean = false
+  let { to, replace, className, ...others } = $props<{
+    to: string
+    replace: boolean
+    className: string,
+  }>()
 
-  const props = (props: GetPropsParams): any => {
+  let active: boolean = $state(false)
+
+  const currentProps = (props: GetPropsParams): any => {
     active = props.isCurrent
   }
 </script>
@@ -16,8 +19,8 @@
   class={`link ${active ? 'active' : ''} ${className}`}
   {to}
   {replace}
-  {...$$props}
-  getProps={props}
+  {...others}
+  getProps={currentProps}
 >
-  <slot />
+  {@render others.children()}
 </Link>

@@ -3,9 +3,8 @@
   import NavLink from './NavLink.svelte'
   import IconGithub from './IconGithub.svelte'
   import { useLocation } from 'svelte-routing'
-  let hiddeHeader = false
   const location = useLocation()
-  $: hiddeHeader = $location.pathname === '/logout'
+  let hiddeHeader = $derived($location.pathname === '/logout')
 </script>
 
 <header id="header" class:hidden={hiddeHeader}>

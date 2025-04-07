@@ -1,9 +1,8 @@
 <script lang="ts">
   import { useLocation } from 'svelte-routing'
 
-  let hiddeFooter = false
   const location = useLocation()
-  $: hiddeFooter = $location.pathname === '/logout'
+  let hiddeFooter = $derived($location.pathname === '/logout')
 </script>
 
 <footer id="footer" class:hidden={hiddeFooter}>
