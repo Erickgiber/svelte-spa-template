@@ -1,4 +1,75 @@
-@mixin label-animation {
+<script lang="ts">
+  import { goto } from '$app/navigation'
+  import { user } from '$lib/store/user.store'
+  import { onMount } from 'svelte'
+  import { quintOut } from 'svelte/easing'
+  import { scale } from 'svelte/transition'
+
+  let { title } = $props<{ title: string }>()
+  let isLoaded = $state(false)
+  let name: string = $state('')
+
+  function handleSubmit(e: Event) {
+    e.preventDefault()
+    if (!name) return
+    user.set({ name })
+    goto('/', { replace: true })
+    localStorage.setItem('name', name)
+  }
+
+  onMount(() => {
+    isLoaded = true
+  })
+</script>
+
+<svelte:head>
+  <title>{title} | APPNAME</title>
+</svelte:head>
+
+{#if isLoaded}
+  <section id="login">
+    <h1
+      transition:scale={{ duration: 1600, easing: quintOut, start: 0.95, opacity: 0 }}
+      class="title"
+    >
+      Hello and welcome!
+    </h1>
+    <h2
+      transition:scale={{ delay: 50, duration: 1600, easing: quintOut, start: 0.95, opacity: 0 }}
+      class="subtitle"
+    >
+      Type your name for login
+    </h2>
+
+    <form
+      id="form"
+      autocomplete="off"
+      onsubmit={handleSubmit}
+      transition:scale={{ duration: 1600, easing: quintOut, start: 0.95, opacity: 0, delay: 200 }}
+    >
+      <div class="input-container">
+        <label class:label-animation={name} for="name"> Name </label>
+        <input
+          placeholder="My name is..."
+          bind:value={name}
+          class="input"
+          type="text"
+          name="name"
+          id="name"
+          maxlength="20"
+          required
+        />
+      </div>
+      <div class="buttons">
+        <button class="btn-submit" type="submit">Login</button>
+        <button class="btn-clear" type="reset" onclick={() => (name = '')}>Clear</button>
+      </div>
+    </form>
+  </section>
+{/if}
+
+<style lang="scss">
+  @mixin label-animation {
   top: -30px;
   left: 10px;
   font-size: 18px;
@@ -154,3 +225,4 @@
     }
   }
 }
+</style>

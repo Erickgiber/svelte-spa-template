@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { app } from '$config/app.config'
-  import NavLink from '$lib/components/NavLink.svelte'
   import { user } from '$lib/store/user.store'
-  import { onDestroy, onMount } from 'svelte'
+  import { onMount } from 'svelte'
   import { quintOut } from 'svelte/easing'
   import { scale } from 'svelte/transition'
 
@@ -17,7 +15,7 @@
 </script>
 
 <svelte:head>
-  <title>{title} | {app.name}</title>
+  <title>{title} | APPNAME</title>
 </svelte:head>
 
 {#if isLoaded}
@@ -69,7 +67,7 @@
         opacity: 0
       }}
     >
-      <NavLink to="/login" class="link-login">Login</NavLink>
+      <a href="/login" class="link-login">Login</a>
     </div>
   </section>
 {/if}
