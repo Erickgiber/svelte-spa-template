@@ -3,7 +3,6 @@
   import { onMount } from 'svelte'
   import { scale } from 'svelte/transition'
   import { quintOut } from 'svelte/easing'
-  import { app } from '$config/app.config'
   import { user } from '$lib/store/user.store'
   import './Logout.scss'
 
@@ -22,7 +21,7 @@
 </script>
 
 <svelte:head>
-  <title>{title} | {app.name}</title>
+  <title>{title} | (APPNAME)</title>
 </svelte:head>
 
 <section id="logout">
@@ -36,3 +35,19 @@
   {/if}
   <Loader />
 </section>
+<style lang="scss">
+  #logout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 50px 20px;
+
+  .title {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.527);
+    margin-bottom: 50px;
+  }
+}
+</style>

@@ -13,9 +13,11 @@
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <meta theme-color="#a31a45" />
     <title>Template Svelte SPA</title>
+    %sveltekit.head%
   </head>
   <body>
-    <main id="app"></main>
-    <script type="module" src="/src/main.ts"></script>
+    <body data-sveltekit-preload-data="tap">
+      <div style="display: contents">%sveltekit.body%</div>
+    </body>
   </body>
 </html>
