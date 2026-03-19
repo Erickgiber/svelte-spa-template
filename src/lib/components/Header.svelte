@@ -1,19 +1,18 @@
 <script lang="ts">
+  import { page } from '$app/state'
   import { user } from '$lib/store/user.store'
-  import NavLink from './NavLink.svelte'
   import IconGithub from './IconGithub.svelte'
-  import { useLocation } from 'svelte-routing'
-  const location = useLocation()
-  let hiddeHeader = $derived($location.pathname === '/logout')
+
+  let hideHeader = $derived(page.url.pathname === '/logout')
 </script>
 
-<header id="header" class:hidden={hiddeHeader}>
+<header id="header" class:hidden={hideHeader}>
   <a class="link-repo" href="https://github.com/Erickgiber/svelte-spa-template">
     <IconGithub />
     <span>Github</span>
   </a>
   {#if $user}
-    <NavLink to="/logout" class="link-logout">
+    <a href="/logout" class="link-logout">
       <span>Logout</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
         <path
@@ -21,7 +20,7 @@
           d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h7v2zm11-4l-1.375-1.45l2.55-2.55H9v-2h8.175l-2.55-2.55L16 7l5 5z"
         />
       </svg>
-    </NavLink>
+    </a>
   {/if}
 </header>
 

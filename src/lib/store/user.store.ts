@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store'
 import { browser } from '$app/environment'
-import type { User } from '$types/user.types'
+import type { User } from '../../types/user.types'
 
 const stored = browser ? localStorage.getItem('name') : null
 const initial = stored ? { name: stored } : null

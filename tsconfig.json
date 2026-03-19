@@ -1,18 +1,11 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
+  "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "baseUrl": "./src",
-    "paths": {
-      "$lib/*": ["lib/*"],
-      "$assets/*": ["assets/*"],
-      "$pages/*": ["pages/*"],
-      "$config/*": ["config/*"],
-      "$types/*": ["types/*"]
-    },
     "allowJs": true,
     "checkJs": true,
     "isolatedModules": true,

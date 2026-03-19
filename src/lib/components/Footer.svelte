@@ -1,17 +1,16 @@
 <script lang="ts">
-  import { useLocation } from 'svelte-routing'
+  import { page } from '$app/state'
 
-  const location = useLocation()
-  let hiddeFooter = $derived($location.pathname === '/logout')
+  let hideFooter = $derived(page.url.pathname === '/logout')
 </script>
 
-<footer id="footer" class:hidden={hiddeFooter}>
+<footer id="footer" class:hidden={hideFooter}>
   <p>
     Made with ❤️ by <a href="https://github.com/erickgiber">Erickgiber</a>
   </p>
 </footer>
 
-<svg class:hidden={hiddeFooter} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+<svg class:hidden={hideFooter} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
   ><path
     fill="#fff"
     fill-opacity="0.7"

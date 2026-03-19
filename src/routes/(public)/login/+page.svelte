@@ -13,7 +13,7 @@
     e.preventDefault()
     if (!name) return
     user.set({ name })
-    goto('/', { replace: true })
+    goto('/', { replaceState: true })
     localStorage.setItem('name', name)
   }
 

@@ -4,7 +4,6 @@
   import { scale } from 'svelte/transition'
   import { quintOut } from 'svelte/easing'
   import { user } from '$lib/store/user.store'
-  import './Logout.scss'
 
   let { title } = $props<{ title: string }>()
   let isLoaded = $state(false)
