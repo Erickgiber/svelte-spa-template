@@ -6,7 +6,7 @@
 
 <footer id="footer" class:hidden={hideFooter}>
   <p>
-    Made with ❤️ by <a href="https://github.com/erickgiber">Erickgiber</a>
+    Made with ❤️ by <a href="https://github.com/erickgiber" target="_blank" rel="noreferrer">Erickgiber</a>
   </p>
 </footer>
 
@@ -32,12 +32,14 @@
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    border-radius: 20px20px 0 0;
+    border-radius: 20px 20px 0 0;
     z-index: 50;
     transition: all 1s;
 
     &.hidden {
       opacity: 0;
+      pointer-events: none;
+      transform: translateY(100%);
     }
 
     a {
@@ -54,6 +56,7 @@
 
     &.hidden {
       opacity: 0;
+      pointer-events: none;
     }
 
     path {

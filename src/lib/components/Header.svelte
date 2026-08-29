@@ -7,7 +7,7 @@
 </script>
 
 <header id="header" class:hidden={hideHeader}>
-  <a class="link-repo" href="https://github.com/Erickgiber/svelte-spa-template">
+  <a class="link-repo" href="https://github.com/Erickgiber/svelte-spa-template" target="_blank" rel="noreferrer">
     <IconGithub />
     <span>Github</span>
   </a>
@@ -36,6 +36,7 @@
 
     &.hidden {
       transform: translateY(-100%);
+      pointer-events: none;
     }
 
     .link-repo {
@@ -53,7 +54,7 @@
       }
     }
 
-    :global(.link-logout) {
+    .link-logout {
       align-items: center;
       text-decoration: none;
       color: white;

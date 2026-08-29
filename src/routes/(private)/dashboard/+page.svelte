@@ -1,11 +1,12 @@
 <script lang="ts">
   import { user } from '$lib/store/user.store'
+  import { browser } from '$app/environment'
   import { onMount } from 'svelte'
   import { quintOut } from 'svelte/easing'
   import { scale } from 'svelte/transition'
 
-  let { title } = $props<{ title: string }>()
-  const isLoadedSession = sessionStorage.getItem('loaded')
+  let { title = 'Dashboard' } = $props<{ title?: string }>()
+  const isLoadedSession = browser ? sessionStorage.getItem('loaded') : null
   let isLoaded = $state(false)
 
   onMount(() => {
@@ -15,7 +16,7 @@
 </script>
 
 <svelte:head>
-  <title>{title} | APPNAME</title>
+  <title>{title} | Template Svelte SPA</title>
 </svelte:head>
 
 {#if isLoaded}
@@ -101,8 +102,9 @@
     }
 
     .subtitle {
-      @extend .title;
       font-size: 1.5rem;
+      color: white;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.527);
     }
 
     .try {
@@ -112,13 +114,18 @@
       color: white;
     }
 
-    :global(.link-login) {
+    .link-login {
       text-decoration: none;
       background-color: white;
       padding: 5px 10px;
       border-radius: 5px;
       color: #202020;
       gap: 5px;
+      transition: all 0.2s;
+
+      &:hover {
+        opacity: 0.9;
+      }
     }
 
     .buttons {

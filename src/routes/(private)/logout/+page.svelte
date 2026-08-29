@@ -4,23 +4,26 @@
   import { scale } from 'svelte/transition'
   import { quintOut } from 'svelte/easing'
   import { user } from '$lib/store/user.store'
+  import { goto } from '$app/navigation'
 
-  let { title } = $props<{ title: string }>()
+  let { title = 'Logout' } = $props<{ title?: string }>()
   let isLoaded = $state(false)
 
   onMount(() => {
     isLoaded = true
     sessionStorage.removeItem('loaded')
 
-    setTimeout(() => {
-      localStorage.removeItem('name')
+    const timeout = setTimeout(() => {
       user.set(null)
+      goto('/login', { replaceState: true })
     }, 2500)
+
+    return () => clearTimeout(timeout)
   })
 </script>
 
 <svelte:head>
-  <title>{title} | (APPNAME)</title>
+  <title>{title} | Template Svelte SPA</title>
 </svelte:head>
 
 <section id="logout">
@@ -34,19 +37,20 @@
   {/if}
   <Loader />
 </section>
+
 <style lang="scss">
   #logout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 50px 20px;
 
-  .title {
-    font-size: 2rem;
-    color: white;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.527);
-    margin-bottom: 50px;
+    .title {
+      font-size: 2rem;
+      color: white;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.527);
+      margin-bottom: 50px;
+    }
   }
-}
 </style>

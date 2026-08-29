@@ -13,10 +13,12 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   background: linear-gradient(to right top, #300537, #6b0546, #a31a45, #d04436, #eb7912);
+  min-height: 100vh;
 }
 
 body {
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
 }
