@@ -6,7 +6,9 @@
 
 <footer id="footer" class:hidden={hideFooter}>
   <p>
-    Made with ❤️ by <a href="https://github.com/erickgiber" target="_blank" rel="noreferrer">Erickgiber</a>
+    Made with ❤️ by <a href="https://github.com/erickgiber" target="_blank" rel="noreferrer"
+      >Erickgiber</a
+    >
   </p>
 </footer>
 

@@ -1,12 +1,14 @@
-export type TypeRouteProps = {
-  title: string
-  [key: string]: any
+export type RouteAccessType = 'public' | 'private' | 'guest'
+
+export interface RouteConfig {
+  path: string
+  access: RouteAccessType
+  title?: string
+  redirectTo?: string
+  preserveRedirect?: boolean
 }
 
-export type TypeRoute = {
-  path: string
-  component: any
-  private: boolean
-  props: TypeRouteProps
-  children?: TypeRoute[]
+export interface RouteAccessResult {
+  allowed: boolean
+  redirectTo?: string
 }

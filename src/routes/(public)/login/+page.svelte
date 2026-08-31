@@ -1,19 +1,26 @@
 <script lang="ts">
   import { goto } from '$app/navigation'
-  import { user } from '$lib/store/user.store'
+  import { page } from '$app/state'
+  import { userState } from '$lib/store/user.svelte'
+  import { DEFAULT_AUTH_REDIRECT, ROUTES } from '$lib/routes/routes.config'
   import { onMount } from 'svelte'
   import { quintOut } from 'svelte/easing'
   import { scale } from 'svelte/transition'
 
   let { title = 'Login' } = $props<{ title?: string }>()
   let isLoaded = $state(false)
-  let name: string = $state('')
+  let name = $state('')
 
   function handleSubmit(e: Event) {
     e.preventDefault()
     if (!name.trim()) return
-    user.set({ name: name.trim() })
-    goto('/dashboard', { replaceState: true })
+
+    userState.login(name)
+
+    const rawRedirect = page.url.searchParams.get('redirect')
+    const redirectTo =
+      rawRedirect && rawRedirect !== ROUTES.LOGOUT ? rawRedirect : DEFAULT_AUTH_REDIRECT
+    goto(redirectTo, { replaceState: true })
   }
 
   onMount(() => {

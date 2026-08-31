@@ -1,17 +1,22 @@
 <script lang="ts">
   import { page } from '$app/state'
-  import { user } from '$lib/store/user.store'
+  import { userState } from '$lib/store/user.svelte'
   import IconGithub from './IconGithub.svelte'
 
   let hideHeader = $derived(page.url.pathname === '/logout')
 </script>
 
 <header id="header" class:hidden={hideHeader}>
-  <a class="link-repo" href="https://github.com/Erickgiber/svelte-spa-template" target="_blank" rel="noreferrer">
+  <a
+    class="link-repo"
+    href="https://github.com/Erickgiber/svelte-spa-template"
+    target="_blank"
+    rel="noreferrer"
+  >
     <IconGithub />
     <span>Github</span>
   </a>
-  {#if $user}
+  {#if userState.isAuthenticated}
     <a href="/logout" class="link-logout">
       <span>Logout</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">

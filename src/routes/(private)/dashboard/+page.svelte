@@ -1,11 +1,13 @@
 <script lang="ts">
-  import { user } from '$lib/store/user.store'
+  import { userState } from '$lib/store/user.svelte'
   import { browser } from '$app/environment'
   import { onMount } from 'svelte'
   import { quintOut } from 'svelte/easing'
   import { scale } from 'svelte/transition'
 
   let { title = 'Dashboard' } = $props<{ title?: string }>()
+
+  // Skip entrance animations if already loaded in this browser session
   const isLoadedSession = browser ? sessionStorage.getItem('loaded') : null
   let isLoaded = $state(false)
 
@@ -30,7 +32,7 @@
       }}
       class="title"
     >
-      {$user?.name}
+      {userState.current?.name}
     </h1>
     <h2
       transition:scale={{

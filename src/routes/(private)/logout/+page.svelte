@@ -3,7 +3,7 @@
   import { onMount } from 'svelte'
   import { scale } from 'svelte/transition'
   import { quintOut } from 'svelte/easing'
-  import { user } from '$lib/store/user.store'
+  import { userState } from '$lib/store/user.svelte'
   import { goto } from '$app/navigation'
 
   let { title = 'Logout' } = $props<{ title?: string }>()
@@ -14,7 +14,7 @@
     sessionStorage.removeItem('loaded')
 
     const timeout = setTimeout(() => {
-      user.set(null)
+      userState.logout()
       goto('/login', { replaceState: true })
     }, 2500)
 

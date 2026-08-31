@@ -1,3 +1,5 @@
-export type User = {
+export interface User {
   name: string
-} | null
+}
+
+export type UserStateValue = User | null
